@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import Header from '../src/components/Header'
-import CoinList from '../src/components/CoinList'
+import Header from '../src/components/Header';
+import CoinList from '../src/components/CoinList';
 
 const Appstyles = styled.div`
   margin-right: 10%;
