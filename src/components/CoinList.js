@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Table from './Table';
 import styled from 'styled-components';
+import axios from 'axios';
 
 const PercentUp = styled.span`
     color: green;
@@ -20,12 +21,11 @@ class CoinList extends Component {
     }
 
     componentDidMount() {
-        fetch('https://api.coinpaprika.com/v1/tickers')
-        .then((response) => response.json())
-        .then(data => this.setState({ 
-            coinList: data,
+        axios.get('https://api.coinpaprika.com/v1/tickers')
+        .then(data => {this.setState ({
+            coinList: data.data,
             isLoading: false,
-        }))
+        })})
         .catch(error => console.error(error))
     }
 
@@ -39,14 +39,25 @@ class CoinList extends Component {
         }
     }
 
+    formatCurrency(num) {
+        return '$ ' + num.toFixed(3).toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1, ')
+    }
+
+    formatMarketCap(num) {
+        return '$ ' + num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1, ')
+    }
+
     render() {
 
-        const {coinList} = this.state
+        const { coinList } = this.state
+        const { changePercent, formatCurrency, formatMarketCap } = this
 
         return(
             <Table 
                 coinList={coinList}
-                changePercent={this.changePercent}
+                changePercent={changePercent}
+                formatCurrency={formatCurrency}
+                formatMarketCap={formatMarketCap}
             />
         );
     }
