@@ -23,7 +23,7 @@ class CoinList extends Component {
     componentDidMount() {
         axios.get('https://api.coinpaprika.com/v1/tickers')
         .then(data => {this.setState ({
-            coinList: data.data,
+            coinList: data.data.sort((a,b) => a.rank - b.rank),
             isLoading: false,
         })})
         .catch(error => console.error(error))
@@ -46,7 +46,7 @@ class CoinList extends Component {
     formatMarketCap(num) {
         return '$ ' + num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1, ')
     }
-
+    
     render() {
 
         const { coinList } = this.state
