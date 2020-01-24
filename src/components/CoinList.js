@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Table from './Table';
+import Pagination from './Pagination';
 import styled from 'styled-components';
 import axios from 'axios';
 
@@ -17,6 +18,8 @@ class CoinList extends Component {
         this.state = {
             coinList: [],
             isLoading: false,
+            coinsPerPage: 50,
+            currentPage: 1,
         };
     }
 
@@ -46,19 +49,33 @@ class CoinList extends Component {
     formatMarketCap(num) {
         return '$ ' + num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1, ')
     }
-    
-    render() {
 
-        const { coinList } = this.state
-        const { changePercent, formatCurrency, formatMarketCap } = this
+    handlePaginationClick() {
+        
+    }
+
+    render() {
+        const { coinList, currentPage, coinsPerPage } = this.state;
+
+        const lastCoinIndex = currentPage * coinsPerPage;
+        const firstCoinIndex = lastCoinIndex - coinsPerPage;
+        const currentCoinsPage = coinList.slice(firstCoinIndex, lastCoinIndex);
+
+        
 
         return(
-            <Table 
-                coinList={coinList}
-                changePercent={changePercent}
-                formatCurrency={formatCurrency}
-                formatMarketCap={formatMarketCap}
-            />
+            <div>
+                <Table 
+                    coinList={currentCoinsPage}
+                    changePercent={this.changePercent}
+                    formatCurrency={this.formatCurrency}
+                    formatMarketCap={this.formatMarketCap}
+                />
+                <Pagination 
+                    currentPage={currentPage}
+                    
+                />
+            </div>
         );
     }
 }
