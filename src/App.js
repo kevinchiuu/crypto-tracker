@@ -10,11 +10,10 @@ const Appstyles = styled.div`
 
 const App = () => {
   return (
-    <Appstyles> 
+    <Appstyles>  
       <Header />
       <CoinList />
     </Appstyles>
-    
   );
 }
 
