@@ -60,8 +60,7 @@ class CoinList extends Component {
         const lastCoinIndex = currentPage * coinsPerPage;
         const firstCoinIndex = lastCoinIndex - coinsPerPage;
         const currentCoinsPage = coinList.slice(firstCoinIndex, lastCoinIndex);
-
-        
+        const totalPages = Math.ceil(coinList.length / coinsPerPage)
 
         return(
             <div>
@@ -73,7 +72,7 @@ class CoinList extends Component {
                 />
                 <Pagination 
                     currentPage={currentPage}
-                    
+                    totalPages={totalPages}
                 />
             </div>
         );

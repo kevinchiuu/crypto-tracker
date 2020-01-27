@@ -18,7 +18,9 @@ const PreviousButton = styled.button`
 
 const Pagination = (props) => {
 
-    const { currentPage } = props;
+    const { currentPage, totalPages } = props;
+
+    
 
     return(
         <ButtonContainer> 
@@ -28,9 +30,11 @@ const Pagination = (props) => {
                 &larr; 
             </PreviousButton>
 
-            <PaginationText> <b>{currentPage}</b> of {} </PaginationText>
+            <PaginationText> <b>{currentPage}</b> of {totalPages} </PaginationText>
 
-            <NextButton> 
+            <NextButton
+            
+            > 
                 &rarr; 
             </NextButton>
         </ButtonContainer>
