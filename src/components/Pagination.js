@@ -20,6 +20,8 @@ const NextButton = styled.button`
 
     :hover {
         background: #3092E8;
+        color: white;
+        transition-duration: 0.4s;
     }
 `
 const PreviousButton = styled.button`
@@ -29,6 +31,8 @@ const PreviousButton = styled.button`
 
     :hover {
         background: #3092E8;
+        color: white;
+        transition-duration: 0.4s;
     }
 `
 
@@ -45,9 +49,12 @@ const Pagination = (props) => {
                 &larr; 
             </PreviousButton>
 
-            <PaginationText> <b>{currentPage}</b> of {totalPages} </PaginationText>
+            <PaginationText> <strong> {currentPage} </strong> of {totalPages} </PaginationText>
 
-            <NextButton onClick={() => handlePaginationClick('next')}> 
+            <NextButton 
+                onClick={() => handlePaginationClick('next')}
+                disabled={currentPage === 49}
+            > 
                 &rarr; 
             </NextButton>
         </ButtonContainer>
