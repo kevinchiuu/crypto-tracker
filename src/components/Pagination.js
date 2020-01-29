@@ -22,7 +22,10 @@ const Pagination = (props) => {
 
     return(
         <ButtonContainer> 
-            <PreviousButton onClick={() => handlePaginationClick('prev')}> 
+            <PreviousButton 
+                onClick={ () => handlePaginationClick('prev') }
+                disabled={currentPage <= 1}
+            > 
                 &larr; 
             </PreviousButton>
 
