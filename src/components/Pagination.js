@@ -18,23 +18,17 @@ const PreviousButton = styled.button`
 
 const Pagination = (props) => {
 
-    const { currentPage, totalPages } = props;
-
-    
+    const { currentPage, totalPages, handlePaginationClick } = props;
 
     return(
         <ButtonContainer> 
-            <PreviousButton
-
-            > 
+            <PreviousButton onClick={() => handlePaginationClick('prev')}> 
                 &larr; 
             </PreviousButton>
 
             <PaginationText> <b>{currentPage}</b> of {totalPages} </PaginationText>
 
-            <NextButton
-            
-            > 
+            <NextButton onClick={() => handlePaginationClick('next')}> 
                 &rarr; 
             </NextButton>
         </ButtonContainer>

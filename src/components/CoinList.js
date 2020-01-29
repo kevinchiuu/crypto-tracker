@@ -21,6 +21,8 @@ class CoinList extends Component {
             coinsPerPage: 50,
             currentPage: 1,
         };
+
+        this.handlePaginationClick = this.handlePaginationClick.bind(this)
     }
 
     componentDidMount() {
@@ -50,8 +52,17 @@ class CoinList extends Component {
         return '$ ' + num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1, ')
     }
 
-    handlePaginationClick() {
-        
+    handlePaginationClick(direction) {
+        let nextPage = this.state.currentPage;
+
+        if (direction === 'next') {
+            nextPage = nextPage + 1;
+        } else {
+            nextPage = nextPage - 1;
+        }
+
+        this.setState({currentPage: nextPage});
+
     }
 
     render() {
@@ -73,6 +84,7 @@ class CoinList extends Component {
                 <Pagination 
                     currentPage={currentPage}
                     totalPages={totalPages}
+                    handlePaginationClick={this.handlePaginationClick}
                 />
             </div>
         );
