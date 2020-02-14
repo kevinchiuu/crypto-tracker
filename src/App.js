@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import styled from 'styled-components';
 import Header from '../src/components/Header';
 import CoinList from '../src/components/CoinList';
@@ -11,14 +11,17 @@ const Appstyles = styled.div`
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <Router>
 
       <Appstyles>  
         <Header />
+        <Switch>
+          
+        </Switch>
         <CoinList />
       </Appstyles>
 
-    </BrowserRouter>
+    </Router>
   );
 }
 
