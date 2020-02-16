@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import styled from 'styled-components';
 import Header from '../src/components/Header';
 import CoinList from '../src/components/CoinList';
+import NotFound from '../src/components/NotFound';
 
 const Appstyles = styled.div`
   margin-right: 10%;
@@ -12,17 +13,17 @@ const Appstyles = styled.div`
 const App = () => {
   return (
     <Router>
-
       <Appstyles>  
         <Header />
-        <Switch>
-          
-        </Switch>
-        <CoinList />
-      </Appstyles>
 
-    </Router>
+        <Switch>
+          <Route path="/" component={CoinList} exact />
+          <Route component={NotFound} />
+        </Switch>
+
+      </Appstyles>
+    </Router> 
   );
 }
 
-export default App;
+export default App;  
