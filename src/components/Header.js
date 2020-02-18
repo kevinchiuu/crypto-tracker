@@ -3,7 +3,7 @@ import Search from './Search';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const HeaderStyle = styled.div`
+const HeaderContainer = styled.div`
     h1 {
         text-transform: uppercase;
         color: black;
@@ -15,13 +15,13 @@ const LinkStyle = styled(Link)`
 
 const Header = () => {
     return (
-        <HeaderStyle>
+        <HeaderContainer>
             <LinkStyle to="/">
                 <h1> Coin Tracker </h1>
             </LinkStyle>
             
             <Search />
-        </HeaderStyle>
+        </HeaderContainer>
 )}
 
 export default Header

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const TableStyle = styled.table`
+const TableContainer = styled.table`
     width: 100%;
 
     th {
@@ -23,7 +23,7 @@ const Table = (props) => {
     const { coinList, changePercent, formatCurrency, formatMarketCap } = props
 
     return(
-        <TableStyle>
+        <TableContainer>
             <thead>
                 <tr>
                     <th> # </th>
@@ -48,7 +48,7 @@ const Table = (props) => {
                     </tr>
                 )}
             </tbody>
-        </TableStyle>
+        </TableContainer>
     );
 }
 
