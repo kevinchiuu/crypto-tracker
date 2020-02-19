@@ -8,31 +8,29 @@ class Search extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            search: ""
+            search: "",
+            input: []
         };
 
         this.handleChange = this.handleChange.bind(this);
     }
 
     handleChange(event) {
-        const valueName = event.target.value;
+        const searchQuery = event.target.value;
 
-        this.setState({ search: valueName });
-
+        this.setState({ search: searchQuery });
         console.log(this.state.search)
     }
 
     render() {
         return (
-            <SearchContainer>
-                <form> 
-                    <input 
-                    onChange={this.handleChange} 
-                    value={this.state.search}
-                    type="text"
-                    placeholder = "search"
-                    />
-                </form>
+            <SearchContainer> 
+                <input 
+                onChange={this.handleChange} 
+                value={this.state.search}
+                type="text"
+                placeholder="search"
+                />
             </SearchContainer>
         )   
     }
