@@ -7,18 +7,22 @@ const HeaderContainer = styled.div`
     h1 {
         text-transform: uppercase;
         color: black;
+        text-decoration: none;
     }
 `
 const LinkStyle = styled(Link)`
     text-decoration: none;
+    color: black;
 `
 
 const Header = () => {
     return (
         <HeaderContainer>
-            <LinkStyle to="/">
-                <h1> Coin Tracker </h1>
-            </LinkStyle>
+           <h1>
+                <LinkStyle to="/">
+                    Coin Tracker
+                </LinkStyle>
+            </h1>
             
             <Search />
         </HeaderContainer>
