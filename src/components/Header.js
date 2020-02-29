@@ -18,13 +18,13 @@ const LinkStyle = styled(Link)`
 const Header = () => {
     return (
         <HeaderContainer>
-           <h1>
+            <h1>
                 <LinkStyle to="/">
                     Coin Tracker
                 </LinkStyle>
             </h1>
-            
-            <Search />
+
+            <Search/>
         </HeaderContainer>
 )}
 
