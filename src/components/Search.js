@@ -2,6 +2,22 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const SearchContainer = styled.div`
+
+    padding-bottom: 15px;
+
+    input {
+        height: 23px;
+        width: 145px;
+        border-color: black;
+        border-radius: 10px;
+        font-size: 15px;
+
+        ::placeholder {
+            text-align: center;
+            font-size: 15px;
+        }
+
+    }
 `
 
 class Search extends Component {
@@ -29,8 +45,11 @@ class Search extends Component {
                 onChange={this.handleChange} 
                 value={this.state.search}
                 type="text"
-                placeholder="search"
+                placeholder="search coins"
                 />
+
+
+
             </SearchContainer>
         )   
     }
