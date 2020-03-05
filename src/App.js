@@ -5,18 +5,14 @@ import Header from '../src/components/Header';
 import CoinList from '../src/components/CoinList';
 import NotFound from '../src/components/NotFound';
 
-const Appstyles = styled.div`
-  margin-right: 10%;
-  margin-left: 10%;
-`
+
+
+const defaultLightTheme = {
+  body: 'blue',
+}
+
 const DarkModeButton = styled.button`
   background: ${ prop => prop.clicked ? 'white' : 'blue' };
-`
-
-const DarkMode = createGlobalStyle`
-  body {
-    background: blue;
-  }
 `
 
 class App extends Component {
@@ -30,15 +26,15 @@ class App extends Component {
   handleThemeClick(event) {
     let currentTheme = this.state.theme
 
-
+  
   }
 
   render() {
     return (
-     // <ThemeProvider theme={DarkMode}>
-
+      <ThemeProvider theme={defaultLightTheme}>
+        
         <Router>
-          <Appstyles>  
+           
             <Header />
 
             <DarkModeButton clicked={true} > dark mode </DarkModeButton>
@@ -48,10 +44,9 @@ class App extends Component {
               <Route component={NotFound} />
             </Switch>
 
-          </Appstyles>
         </Router> 
-
-     // </ThemeProvider>
+        
+      </ThemeProvider>
     );
   }
 }
