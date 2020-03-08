@@ -11,6 +11,10 @@ const defaultLightTheme = {
   body: 'blue',
 }
 
+const darktheme = {
+  
+}
+
 const DarkModeButton = styled.button`
   background: ${ prop => prop.clicked ? 'white' : 'blue' };
 `
