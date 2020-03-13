@@ -5,14 +5,12 @@ import Header from '../src/components/Header';
 import CoinList from '../src/components/CoinList';
 import NotFound from '../src/components/NotFound';
 
-
-
 const defaultLightTheme = {
   body: 'blue',
 }
 
 const darktheme = {
-  
+
 }
 
 const DarkModeButton = styled.button`
@@ -30,7 +28,7 @@ class App extends Component {
   handleThemeClick(event) {
     let currentTheme = this.state.theme
 
-  
+    
   }
 
   render() {
