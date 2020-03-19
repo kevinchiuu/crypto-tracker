@@ -26,9 +26,7 @@ class App extends Component {
     this.state = { theme: 'light' }
   }
 
-  handleThemeClick(event) {
-    let currentTheme = this.state.theme
-
+  toggleDarkMode(event) {
     
   }
 
