@@ -6,7 +6,7 @@ import CoinList from '../src/components/CoinList';
 import NotFound from '../src/components/NotFound';
 
 const defaultLightTheme = {
-  body: 'blue',
+  body: '#E2E2E2',
 }
 
 const darktheme = {
@@ -23,8 +23,8 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { theme: 'light' }
-  }
+    this.state = { darkMode: false }
+  }  
 
   toggleDarkMode(event) {
     
