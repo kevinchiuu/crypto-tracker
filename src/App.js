@@ -6,13 +6,8 @@ import CoinList from '../src/components/CoinList';
 import NotFound from '../src/components/NotFound';
 
 const defaultLightTheme = {
-  body: '#E2E2E2',
+  body: '#E2E2E2'
 }
-
-const darktheme = {
-  
-}
-
 
 const DarkModeButton = styled.button`
   background: ${ prop => prop.clicked ? 'white' : 'blue' };
