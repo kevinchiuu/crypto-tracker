@@ -9,9 +9,6 @@ const defaultLightTheme = {
   body: '#E2E2E2'
 }
 
-const DarkModeButton = styled.button`
-  background: ${ prop => prop.clicked ? 'white' : 'blue' };
-`
 const darkTheme = {}
 
 class App extends Component {
@@ -20,10 +17,12 @@ class App extends Component {
     super(props);
 
     this.state = { darkMode: false }
+
+    this.toggleDarkMode = this.toggleDarkMode.bind(this)
   }  
 
-  toggleDarkMode(event) {
-    
+  toggleDarkMode() {
+    this.setState = { darkMode: true }
   }
 
   render() {
@@ -34,7 +33,9 @@ class App extends Component {
            
             <Header />
 
-            <DarkModeButton clicked={true} > dark mode </DarkModeButton>
+            <div> 
+              <button> dark mode </button>
+            </div>
 
             <Switch>
               <Route path="/" component={CoinList} exact />
