@@ -23,6 +23,8 @@ class App extends Component {
 
   toggleDarkMode() {
     this.setState = { darkMode: true }
+
+    localStorage.setItem()
   }
 
   render() {
