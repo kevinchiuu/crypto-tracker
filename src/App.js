@@ -1,42 +1,52 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 import Header from '../src/components/Header';
 import CoinList from '../src/components/CoinList';
 import NotFound from '../src/components/NotFound';
 
-const defaultLightTheme = {
+const light = {
   body: '#E2E2E2'
 }
 
-const darkTheme = {}
+const dark = {
+  body: 'black',
+}
 
 class App extends Component {
 
   constructor(props) {
     super(props);
 
-    this.state = { darkMode: false }
+    this.state = { lightTheme: true }
 
     this.toggleDarkMode = this.toggleDarkMode.bind(this)
   }  
 
-  toggleDarkMode() {
-    this.setState = { darkMode: true }
+  componentDidMount() {
+    const localStorageLayout = localStorage.getItem("lightTheme")
 
-    localStorage.setItem()
+    if (localStorageLayout) {
+      this.setState({ lightTheme: JSON.parse(localStorageLayout) })
+    }
+  }
+
+  toggleDarkMode() {
+    this.setState = { lightTheme: true }
+
+    localStorage.setItem("lightTheme", !this.state.lightTheme)
   }
 
   render() {
     return (
-      <ThemeProvider theme={defaultLightTheme}>
+      <ThemeProvider theme={this.state.lightTheme ? light : dark }>
         
         <Router>
            
             <Header />
 
             <div> 
-              <button> dark mode </button>
+              <button onClick={() => this.toggleDarkMode()}> dark mode </button>
             </div>
 
             <Switch>
