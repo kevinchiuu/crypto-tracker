@@ -8,14 +8,12 @@ import NotFound from '../src/components/NotFound';
 const light = {
   main: "#2a2a2a",
   secondary: "white",
-  link: "white",
   body: "white",
 }
 
 const dark = {
   main: "white",
   secondary: "#2a2a2a",
-  link: "white",
   body: "#2a2a2a",
 }
 
@@ -31,7 +29,6 @@ class App extends Component {
     super(props);
 
     this.state = { lightTheme: true }
-
     this.toggleDarkMode = this.toggleDarkMode.bind(this)
   }  
 
@@ -54,6 +51,7 @@ class App extends Component {
   render() {
     return (
       <ThemeProvider theme={this.state.lightTheme ? light : dark }>
+        
         <Layout>
           <Router>
             
@@ -67,9 +65,10 @@ class App extends Component {
                 <Route path="/" component={CoinList} exact />
                 <Route component={NotFound} />
               </Switch>
-
+            
           </Router> 
         </Layout>
+
       </ThemeProvider>
     );
   }
