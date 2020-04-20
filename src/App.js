@@ -8,12 +8,16 @@ import NotFound from '../src/components/NotFound';
 const light = {
   main: "#2a2a2a",
   secondary: "white",
+  link: "white",
+  brand: "rebeccapurple",
   body: "white",
 }
 
 const dark = {
   main: "white",
   secondary: "#2a2a2a",
+  link: "white",
+  brand: "palevioletred",
   body: "#2a2a2a",
 }
 
@@ -21,8 +25,10 @@ const Layout = styled.div`
   background-color: ${ props => props.theme.secondary ? props.theme.body : undefined };
 
   color: ${ props => ( props.theme.secondary ? props.theme.main : undefined )};
-`
 
+  margin-left: 10%;
+  margin-right: 10%;
+`
 class App extends Component {
 
   constructor(props) {
@@ -41,7 +47,7 @@ class App extends Component {
   }
 
   toggleDarkMode() {
-    this.setState = ({ 
+    this.setState({ 
       lightTheme: !this.state.lightTheme
     })
 
@@ -53,22 +59,21 @@ class App extends Component {
       <ThemeProvider theme={this.state.lightTheme ? light : dark }>
         
         <Layout>
-          <Router>
+        <Router>
             
-              <Header />
+            <Header />
 
-              <div> 
-                <button onClick={() => this.toggleDarkMode()}> dark mode </button>
-              </div>
+            <div> 
+              <button onClick={() => this.toggleDarkMode()}> dark mode </button>
+            </div>
 
-              <Switch>
-                <Route path="/" component={CoinList} exact />
-                <Route component={NotFound} />
-              </Switch>
-            
-          </Router> 
-        </Layout>
-
+            <Switch>
+              <Route path="/" component={CoinList} exact />
+              <Route component={NotFound} />
+            </Switch>
+          
+        </Router> 
+      </Layout>
       </ThemeProvider>
     );
   }
