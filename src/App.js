@@ -9,7 +9,6 @@ const light = {
   main: "#2a2a2a",
   secondary: "white",
   link: "white",
-  brand: "rebeccapurple",
   body: "white",
 }
 
@@ -17,7 +16,6 @@ const dark = {
   main: "white",
   secondary: "#2a2a2a",
   link: "white",
-  brand: "palevioletred",
   body: "#2a2a2a",
 }
 
@@ -77,7 +75,7 @@ class App extends Component {
           </LayoutInner>
 
         </LayoutOuter>
-        
+
       </ThemeProvider>
     );
   }

@@ -12,13 +12,19 @@ const HeaderContainer = styled.div`
 `
 const LinkStyle = styled(Link)`
     text-decoration: none;
-    color: black;
+    color: ${ props => ( props.theme.secondary ? props.theme.main : undefined )};
 `
 
 const DMButton = styled.div`
     display: flex;
     justify-content: flex-end;
     margin-bottom: 1%;
+
+    button {
+        font-size: 13px;
+        text-transform: uppercase;
+        border-radius: 4px;
+    }
 `
 
 const Header = (props) => {
