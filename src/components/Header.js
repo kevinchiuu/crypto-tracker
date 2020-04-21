@@ -16,8 +16,9 @@ const LinkStyle = styled(Link)`
 `
 
 const DMButton = styled.div`
-    display: inline-block;
-    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1%;
 `
 
 const Header = (props) => {
