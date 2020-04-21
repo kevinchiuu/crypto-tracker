@@ -1,5 +1,4 @@
 import React from 'react';
-import Search from './Search';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -8,6 +7,7 @@ const HeaderContainer = styled.div`
         text-transform: uppercase;
         color: black;
         text-decoration: none;
+        display: inline-block;
     }
 `
 const LinkStyle = styled(Link)`
@@ -15,7 +15,15 @@ const LinkStyle = styled(Link)`
     color: black;
 `
 
-const Header = () => {
+const DMButton = styled.div`
+    display: inline-block;
+    text-align: right;
+`
+
+const Header = (props) => {
+
+    const {toggleDarkMode} = props
+
     return (
         <HeaderContainer>
             <h1>
@@ -24,7 +32,10 @@ const Header = () => {
                 </LinkStyle>
             </h1>
 
-            <Search/>
+            <DMButton> 
+                <button onClick={() => toggleDarkMode()}> dark mode </button>
+            </DMButton>
+
         </HeaderContainer>
 )}
 

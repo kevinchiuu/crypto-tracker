@@ -21,14 +21,17 @@ const dark = {
   body: "#2a2a2a",
 }
 
-const Layout = styled.div`
+const LayoutOuter = styled.div`
   background-color: ${ props => props.theme.secondary ? props.theme.body : undefined };
 
   color: ${ props => ( props.theme.secondary ? props.theme.main : undefined )};
+`
 
+const LayoutInner = styled.div`
   margin-left: 10%;
   margin-right: 10%;
 `
+
 class App extends Component {
 
   constructor(props) {
@@ -57,23 +60,24 @@ class App extends Component {
   render() {
     return (
       <ThemeProvider theme={this.state.lightTheme ? light : dark }>
-        
-        <Layout>
-        <Router>
+
+        <LayoutOuter>
+
+          <LayoutInner>
+            <Router>
+              
+              <Header toggleDarkMode={this.toggleDarkMode}/>
+
+              <Switch>
+                <Route path="/" component={CoinList} exact />
+                <Route component={NotFound} />
+              </Switch>
             
-            <Header />
+            </Router> 
+          </LayoutInner>
 
-            <div> 
-              <button onClick={() => this.toggleDarkMode()}> dark mode </button>
-            </div>
-
-            <Switch>
-              <Route path="/" component={CoinList} exact />
-              <Route component={NotFound} />
-            </Switch>
-          
-        </Router> 
-      </Layout>
+        </LayoutOuter>
+        
       </ThemeProvider>
     );
   }
